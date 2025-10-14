@@ -46,29 +46,28 @@
   float: left;
   
   a {
-    color: $text-primary !important; // FORCE la couleur blanche/gris
-    text-decoration: none;
-    transition: color 0.2s ease;
-    
-    &:hover {
-      color: $brand-color !important; // Devient bleu seulement au survol
-    }
+    color: $text-primary !important;
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 56px;
+    line-height: 56px; // Force l'alignement vertical
   }
 }
 
-.menu-list {
-  line-height: $header-thickness;
-  float: right;
-  padding-right: 20px;
-}
-
-.menu-link {
-  padding: 5px 10px;
-  color: $text-primary; // Couleur normale
-  transition: color 0.2s ease;
+// Styles pour le favicon dans le header
+.site-favicon {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+  display: block;
+  margin: 0; // Supprime les marges par défaut
+  padding: 0;
   
-  &:hover {
-    color: $brand-color; // Bleu au survol
+  .site-title a:hover & {
+    transform: scale(1.1);
   }
 }
 
@@ -81,6 +80,7 @@
 .menu-link {
   padding: 5px 10px;
   color: $text-primary;
+  text-decoration: none !important;
   transition: color 0.2s ease;
   
   &:hover {
@@ -104,7 +104,7 @@
 @media (max-width: $container-width) {
   .site-header {
     min-height: 56px;
-    width: 100%; // Garde 100% sur mobile aussi
+    width: 100%;
     position: fixed;
     background-color: $background-header;
     box-shadow: 0 5px 6px -6px rgba(0, 0, 0, 0.3);
@@ -126,6 +126,11 @@
   .site-title {
     padding-right: 0.25rem;
     padding-left: 10px;
+    
+    .site-favicon {
+      width: 20px;
+      height: 20px;
+    }
   }
   
   .dropbtn {
