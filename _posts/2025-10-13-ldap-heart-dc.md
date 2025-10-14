@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 📋​ Enumerate LDAP 
-date: 2025-10-14
+date: 2025-10-13
 categories: cheatsheets
 tags: [cheatsheets, ldap, adsearch, ldapsearch, lineeralgebra, ethicxz]
 author: Lineeralgebra, Ethicxz

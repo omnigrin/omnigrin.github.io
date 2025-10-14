@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 〰️ Bloodhound 
-date: 2025-10-15
+date: 2025-10-14
 categories: cheatsheets
 tags: [cheatsheets, bloodhound, ldap, lineeralgebra, ethicxz]
 author: Lineeralgebra, Ethicxz
