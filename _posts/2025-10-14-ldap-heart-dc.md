@@ -3,7 +3,7 @@ layout: post
 title: 📋​ Enumerate LDAP 
 date: 2025-10-14
 categories: cheatsheets
-tags: [cheatsheets, powerview, ldap, lineeralgebra]
+tags: [cheatsheets, ldap, adsearch, ldapsearch, lineeralgebra, ethicxz]
 author: Lineeralgebra, Ethicxz
 image: start/ldap.png
 description: Enumerate LDAP
@@ -327,3 +327,5 @@ cat ldapsearch.txt | grep -i "sAMAccountName" | awk '{print $2}'
 These **quick filters** help you identify juicy artifacts like **plaintext notes, password hints, and lists of account names**.
 
 [Lineeralgebra](https://www.youtube.com/@osmandagdelen9575) - [Ethicxz](https://x.com/ethicxz)
+
+If there is anything wrong on a post, add me on discord : "ethicxz." or dm me on twitter
