@@ -2,33 +2,79 @@
   Site container
 */
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   width: $container-width;
   margin-left: auto;
   margin-right: auto;
+  background-color: $background-dark;
+  min-height: 100vh; // Prend toute la hauteur de la vue
+  display: flex;
+  flex-direction: column; // Organisation en colonne
+  position: relative;
 }
+
 .container a {
-  text-decoration: underline;
+  text-decoration: none; // CHANGER de 'underline' à 'none'
+  color: $brand-color;
+  
+  &:hover {
+    color: lighten($brand-color, 10%);
+    text-decoration: none;
+  }
 }
+
 .content-wrapper {
-  padding-top: $header-thickness+10px;
+  padding-top: $header-thickness + 10px;
   margin: auto;
   display: block;
   width: $container-width - 20px;
+  flex: 1; // Prend tout l'espace disponible entre header et footer
 }
+
 .content-wrapper h1 {
   margin: 20px 0px 5px;
 }
+
+// Styles pour les cartes et sections
+.content-section {
+  background-color: $background-card;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.content-section h2 {
+  color: $text-primary;
+  border-bottom: 1px solid $border-color;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
 @media (max-width: $container-width) {
   .container {
     width: 95vw;
     margin-left: auto;
     margin-right: auto;
+    min-height: 100vh; // Garde la hauteur minimale
   }
+  
   .content-wrapper {
-    padding-top: $header-thickness+10px;
+    padding-top: $header-thickness + 10px;
     margin: auto;
     display: block;
     width: 95vw;
+    flex: 1;
+  }
+  
+  .content-section {
+    margin: 10px;
+    padding: 15px;
   }
 }

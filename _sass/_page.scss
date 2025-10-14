@@ -2,5 +2,135 @@
   max-width: 600px;
   display: block;
   margin: 10px auto 10px;
-  padding: 0px 10px 10px;
+  padding: 20px;
+  background-color: $background-card;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: $text-primary;
+}
+
+.page-content h1 {
+  color: $text-primary;
+  border-bottom: 1px solid $border-color;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.page-content h2 {
+  color: $text-primary;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.page-content h3 {
+  color: $text-primary;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.page-content p {
+  color: $text-primary;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.page-content ul, 
+.page-content ol {
+  color: $text-primary;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.page-content li {
+  color: $text-primary;
+  margin-bottom: 0.5rem;
+}
+
+.page-content a {
+  color: $brand-color;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: lighten($brand-color, 10%);
+    text-decoration: underline;
+  }
+}
+
+.page-content code:not(pre code) {
+  background-color: $background-dark;
+  color: $text-primary;
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid $border-color;
+  font-size: 0.9em;
+}
+
+.page-content pre {
+  background-color: $background-dark;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  margin: 20px 0;
+}
+
+.page-content blockquote {
+  background-color: $background-dark;
+  border-left: 4px solid $brand-color;
+  margin: 20px 0;
+  padding: 15px 20px;
+  border-radius: 0 4px 4px 0;
+  color: $text-secondary;
+  font-style: italic;
+}
+
+.page-content table {
+  background-color: $background-dark;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.page-content th {
+  background-color: darken($background-header, 5%);
+  color: $text-primary;
+  font-weight: 600;
+}
+
+.page-content td {
+  border-top: 1px solid $border-color;
+  color: $text-primary;
+}
+
+// Responsive design pour les pages
+@media (max-width: $tablet-width) {
+  .page-content {
+    max-width: 90vw;
+    margin: 10px auto;
+    padding: 15px;
+  }
+}
+
+@media (max-width: $phone-width) {
+  .page-content {
+    max-width: 95vw;
+    margin: 5px auto;
+    padding: 10px;
+  }
+  
+  .page-content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .page-content h2 {
+    font-size: 1.3rem;
+  }
+  
+  .page-content h3 {
+    font-size: 1.1rem;
+  }
 }
