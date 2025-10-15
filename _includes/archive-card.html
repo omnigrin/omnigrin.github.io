@@ -1,0 +1,35 @@
+<div class="archive-card">
+  {% if include.post.image %}
+    {% assign image_path = include.post.image %}
+    {% unless image_path contains "/assets/img/" %}
+      {% assign image_path = "/assets/img/" | append: image_path %}
+    {% endunless %}
+    <img src="{{ image_path | relative_url }}" alt="{{ include.post.title }}" class="archive-card-image">
+  {% else %}
+    <div class="archive-card-image" style="background: var(--background-alt); display: flex; align-items: center; justify-content: center; color: var(--text-light);">
+      📄
+    </div>
+  {% endif %}
+  
+  <div class="archive-card-content">
+    <h3 class="archive-card-title">
+      <a href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a>
+    </h3>
+    
+    <div class="archive-card-meta">
+      {{ include.post.date | date: "%B %d, %Y" }}
+    </div>
+    
+    {% if include.post.description %}
+      <p class="archive-card-description">{{ include.post.description }}</p>
+    {% endif %}
+    
+    {% if include.post.tags %}
+      <div class="archive-card-tags">
+        {% for tag in include.post.tags limit: 3 %}
+          <span class="archive-tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>

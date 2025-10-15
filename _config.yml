@@ -4,7 +4,11 @@
 paginate:            5
 
 # Build settings
-markdown:            kramdown
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+  auto_ids: true
+  toc_levels: 1..6
 highlighter:         rouge
 permalink:           /:title
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
@@ -13,6 +17,10 @@ plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-t
 title:		           "Omnigrin"
 description:	       "Ressource"
 author:              "Ethicxz"
+
+include:
+  - pages
+
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:

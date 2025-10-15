@@ -78,3 +78,17 @@ html, body {
     padding: 15px;
   }
 }
+// Variables pour les archives
+$border-color: #e1e4e8 !default;
+$background-alt: #f6f8fa !default;
+$text-light: #6a737d !default;
+$tag-background: #d1f7ff !default;
+$tag-color: #0366d6 !default;
+
+:root {
+  --border-color: #{$border-color};
+  --background-alt: #{$background-alt};
+  --text-light: #{$text-light};
+  --tag-background: #{$tag-background};
+  --tag-color: #{$tag-color};
+}

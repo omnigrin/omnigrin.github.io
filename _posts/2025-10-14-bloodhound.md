@@ -3,11 +3,13 @@ layout: post
 title: 〰️ Bloodhound 
 date: 2025-10-14
 categories: cheatsheets
-tags: [cheatsheets, bloodhound, ldap, lineeralgebra, ethicxz]
+tags: [cheatsheets, bloodhound, ldap, ad, lineeralgebra, ethicxz]
 author: Lineeralgebra, Ethicxz
 image: start/bloodhound.jpg
 description: Enumerate with BloodHound
 ---
+
+{% include toc.html %}
 
 # 🐕‍🦺 BloodHound – Mapping Active Directory Made Easy
 
@@ -357,7 +359,7 @@ This is the true power of  🔥
 
 If you are interested in learning more about **Bloodhound Cypher queries**, I highly recommend this **cheatsheet**:
 
-https://hausec.com/2019/09/09/bloodhound-cypher-cheatsheet/
+[Cypher CheatSheet](https://hausec.com/2019/09/09/bloodhound-cypher-cheatsheet/)
 
 [Lineeralgebra](https://www.youtube.com/@osmandagdelen9575) - [Ethicxz](https://x.com/ethicxz)
 

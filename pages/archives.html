@@ -1,0 +1,924 @@
+---
+layout: default
+title: Archives
+permalink: /archives
+---
+
+<style>
+:root {
+    --ds-primary: #1a1a1a;
+    --ds-secondary: #2d2d2d;
+    --ds-accent: #3b82f6;
+    --ds-accent-hover: #2563eb;
+    --ds-text: #e5e5e5;
+    --ds-text-light: #a3a3a3;
+    --ds-border: #404040;
+    --ds-border-hover: #525252;
+    --ds-shadow: rgba(0, 0, 0, 0.3);
+    --ds-shadow-hover: rgba(59, 130, 246, 0.2);
+}
+
+/* Main Title */
+.archives-main-title {
+    text-align: center;
+    margin: 0 0 3rem 0;
+    padding: 1rem 0;
+    color: var(--ds-text);
+    font-size: 2.5rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--ds-border);
+}
+
+/* Category Section */
+.archives-category-section {
+    margin: 0 0 2.5rem 0;
+    border: 1px solid var(--ds-border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--ds-primary);
+    box-shadow: 0 2px 8px var(--ds-shadow);
+    transition: all 0.3s ease;
+}
+
+.archives-category-section:hover {
+    border-color: var(--ds-border-hover);
+    box-shadow: 0 4px 16px var(--ds-shadow);
+}
+
+/* Category Header */
+.archives-category-header {
+    background: var(--ds-secondary);
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--ds-border);
+    transition: all 0.3s ease;
+}
+
+.archives-category-header:hover {
+    background: #363636;
+}
+
+.archives-category-header h2 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--ds-text);
+    transition: color 0.3s ease;
+}
+
+.archives-category-header:hover h2 {
+    color: var(--ds-accent);
+}
+
+.archives-category-toggle {
+    font-size: 1.2rem;
+    color: var(--ds-text-light);
+    transition: all 0.3s ease;
+}
+
+.archives-category-header:hover .archives-category-toggle {
+    color: var(--ds-accent);
+    transform: scale(1.1);
+}
+
+/* Category Content */
+.archives-category-content {
+    padding: 0;
+    background: var(--ds-primary);
+}
+
+/* Section */
+.archives-section {
+    margin: 0;
+    border-bottom: 1px solid var(--ds-border);
+    transition: background-color 0.3s ease;
+}
+
+.archives-section:last-child {
+    border-bottom: none;
+}
+
+.archives-section:hover {
+    background: rgba(59, 130, 246, 0.05);
+}
+
+/* Section Header */
+.archives-section-header {
+    background: var(--ds-secondary);
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.archives-section-header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--ds-accent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.archives-section-header:hover::before {
+    transform: scaleX(1);
+}
+
+.archives-section-header:hover {
+    background: #363636;
+    padding-left: 1.8rem;
+}
+
+.archives-section-header h3 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--ds-text-light);
+    transition: color 0.3s ease;
+}
+
+.archives-section-header:hover h3 {
+    color: var(--ds-text);
+}
+
+.archives-toggle {
+    font-size: 1rem;
+    color: var(--ds-text-light);
+    transition: all 0.3s ease;
+}
+
+.archives-section-header:hover .archives-toggle {
+    color: var(--ds-accent);
+    transform: scale(1.1);
+}
+
+/* Section Content */
+.archives-section-content {
+    padding: 0;
+    background: var(--ds-primary);
+    display: none;
+}
+
+/* Grid */
+.archives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+/* Archive Card */
+.archive-card {
+    background: var(--ds-secondary);
+    border: 1px solid var(--ds-border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px var(--ds-shadow);
+    position: relative;
+}
+
+.archive-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--ds-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.archive-card:hover::before {
+    transform: scaleX(1);
+}
+
+.archive-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px var(--ds-shadow-hover);
+    border-color: var(--ds-accent);
+}
+
+/* Card Image */
+.archive-card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--ds-border);
+    background: var(--ds-primary);
+    transition: all 0.3s ease;
+}
+
+.archive-card:hover .archive-card-image {
+    transform: scale(1.02);
+}
+
+/* Card Content */
+.archive-card-content {
+    padding: 1.5rem;
+}
+
+/* Card Title */
+.archive-card-title {
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.archive-card-title a {
+    text-decoration: none;
+    color: var(--ds-text);
+    transition: color 0.3s ease;
+    display: block;
+}
+
+.archive-card-title a:hover {
+    color: var(--ds-accent);
+}
+
+/* Card Meta */
+.archive-card-meta {
+    font-size: 0.9rem;
+    color: var(--ds-text-light);
+    margin-bottom: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.archive-card-meta::before {
+    content: '🕒';
+    font-size: 0.8rem;
+}
+
+/* Card Description */
+.archive-card-description {
+    font-size: 0.95rem;
+    color: var(--ds-text-light);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+/* Card Tags */
+.archive-card-tags {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.archive-tag {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--ds-accent);
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+}
+
+.archive-tag:hover {
+    background: rgba(59, 130, 246, 0.2);
+    transform: translateY(-1px);
+}
+
+/* Empty Section */
+.empty-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--ds-text-light);
+    font-style: italic;
+    font-size: 1.1rem;
+    background: var(--ds-secondary);
+    border-radius: 8px;
+    border: 2px dashed var(--ds-border);
+    margin: 1rem;
+    position: relative;
+}
+
+.empty-section::before {
+    content: '🔍';
+    display: block;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .archives-main-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .archives-category-header {
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .archives-category-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .archives-section-header {
+        padding: 1rem 1.2rem;
+    }
+    
+    .archives-section-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .archives-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 1.2rem;
+    }
+    
+    .archive-card-image {
+        height: 160px;
+    }
+    
+    .archive-card-content {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .archives-main-title {
+        font-size: 1.8rem;
+    }
+    
+    .archives-category-header {
+        padding: 1rem 1.2rem;
+    }
+    
+    .archives-category-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .archives-section-header h3 {
+        font-size: 1rem;
+    }
+    
+    .archive-card-image {
+        height: 140px;
+    }
+    
+    .archive-card-content {
+        padding: 1rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Gestion des catégories principales
+    const categoryHeaders = document.querySelectorAll('.archives-category-header');
+    
+    categoryHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const toggle = this.querySelector('.archives-category-toggle');
+            
+            if (content.style.display === 'none' || !content.style.display) {
+                content.style.display = 'block';
+                toggle.textContent = '▼';
+                toggle.style.color = 'var(--ds-accent)';
+            } else {
+                content.style.display = 'none';
+                toggle.textContent = '▶';
+                toggle.style.color = 'var(--ds-text-light)';
+            }
+        });
+        
+        // Fermé par défaut
+        const content = header.nextElementSibling;
+        content.style.display = 'none';
+        const toggle = header.querySelector('.archives-category-toggle');
+        toggle.textContent = '▶';
+        toggle.style.color = 'var(--ds-text-light)';
+    });
+
+    // Gestion des sections internes
+    const sectionHeaders = document.querySelectorAll('.archives-section-header');
+    
+    sectionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const toggle = this.querySelector('.archives-toggle');
+            
+            if (content.style.display === 'none' || !content.style.display) {
+                content.style.display = 'block';
+                toggle.textContent = '▼';
+                toggle.style.color = 'var(--ds-accent)';
+            } else {
+                content.style.display = 'none';
+                toggle.textContent = '▶';
+                toggle.style.color = 'var(--ds-text-light)';
+            }
+        });
+        
+        // Fermé par défaut
+        const content = header.nextElementSibling;
+        content.style.display = 'none';
+        const toggle = header.querySelector('.archives-toggle');
+        toggle.textContent = '▶';
+        toggle.style.color = 'var(--ds-text-light)';
+    });
+});
+</script>
+
+<h1 class="archives-main-title">Archives</h1>
+
+<div class="archives-category-section">
+  <div class="archives-category-header">
+    <h2>📚 CheatSheet</h2>
+    <span class="archives-category-toggle">▶</span>
+  </div>
+  <div class="archives-category-content">
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>📚 Active Directory</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.categories.cheatsheets %}
+            {% if post.tags contains "ad" or post.tags contains "active-directory" %}
+              {% include archive-card.html post=post %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% assign ad_cheatsheets_count = 0 %}
+        {% for post in site.categories.cheatsheets %}
+          {% if post.tags contains "ad" or post.tags contains "active-directory" %}
+            {% assign ad_cheatsheets_count = ad_cheatsheets_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% if ad_cheatsheets_count == 0 %}
+          <div class="empty-section">No Active Directory cheat sheets yet</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>📚 Pwn & Binary Exploitation</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.categories.cheatsheets %}
+            {% if post.tags contains "pwn" or post.tags contains "binary" or post.tags contains "exploitation" %}
+              {% include archive-card.html post=post %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% assign pwn_cheatsheets_count = 0 %}
+        {% for post in site.categories.cheatsheets %}
+          {% if post.tags contains "pwn" or post.tags contains "binary" or post.tags contains "exploitation" %}
+            {% assign pwn_cheatsheets_count = pwn_cheatsheets_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% if pwn_cheatsheets_count == 0 %}
+          <div class="empty-section">No Pwn cheat sheets yet</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>📚 Web</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.categories.cheatsheets %}
+            {% if post.tags contains "web" or post.tags contains "webapp" or post.tags contains "pentest" %}
+              {% include archive-card.html post=post %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% assign web_cheatsheets_count = 0 %}
+        {% for post in site.categories.cheatsheets %}
+          {% if post.tags contains "web" or post.tags contains "webapp" or post.tags contains "pentest" %}
+            {% assign web_cheatsheets_count = web_cheatsheets_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% if web_cheatsheets_count == 0 %}
+          <div class="empty-section">No Web cheat sheets yet</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>📚 Reverse Engineering</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.categories.cheatsheets %}
+            {% if post.tags contains "reverse" or post.tags contains "reversing" or post.tags contains "malware" %}
+              {% include archive-card.html post=post %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% assign reverse_cheatsheets_count = 0 %}
+        {% for post in site.categories.cheatsheets %}
+          {% if post.tags contains "reverse" or post.tags contains "reversing" or post.tags contains "malware" %}
+            {% assign reverse_cheatsheets_count = reverse_cheatsheets_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% if reverse_cheatsheets_count == 0 %}
+          <div class="empty-section">No Reverse Engineering cheat sheets yet</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>📚 Web3 & Blockchain</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.categories.cheatsheets %}
+            {% if post.tags contains "web3" or post.tags contains "blockchain" or post.tags contains "smart-contract" %}
+              {% include archive-card.html post=post %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% assign web3_cheatsheets_count = 0 %}
+        {% for post in site.categories.cheatsheets %}
+          {% if post.tags contains "web3" or post.tags contains "blockchain" or post.tags contains "smart-contract" %}
+            {% assign web3_cheatsheets_count = web3_cheatsheets_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% if web3_cheatsheets_count == 0 %}
+          <div class="empty-section">No Web3 cheat sheets yet</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>📚 Not Defined</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.categories.cheatsheets %}
+            {% unless post.tags contains "ad" or post.tags contains "pwn" or post.tags contains "web" or post.tags contains "reverse" or post.tags contains "web3" %}
+              {% include archive-card.html post=post %}
+            {% endunless %}
+          {% endfor %}
+        </div>
+        {% assign other_cheatsheets_count = 0 %}
+        {% for post in site.categories.cheatsheets %}
+          {% unless post.tags contains "ad" or post.tags contains "pwn" or post.tags contains "web" or post.tags contains "reverse" or post.tags contains "web3" %}
+            {% assign other_cheatsheets_count = other_cheatsheets_count | plus: 1 %}
+          {% endunless %}
+        {% endfor %}
+        {% if other_cheatsheets_count == 0 %}
+          <div class="empty-section">No uncategorized cheat sheets</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="archives-category-section">
+  <div class="archives-category-header">
+    <h2>📝 Posts</h2>
+    <span class="archives-category-toggle">▶</span>
+  </div>
+  <div class="archives-category-content">
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>📝 Active Directory Posts</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.posts %}
+            {% unless post.categories contains "cheatsheets" or post.categories contains "writeups" %}
+              {% if post.tags contains "ad" or post.tags contains "active-directory" %}
+                {% include archive-card.html post=post %}
+              {% endif %}
+            {% endunless %}
+          {% endfor %}
+        </div>
+        {% assign ad_posts_count = 0 %}
+        {% for post in site.posts %}
+          {% unless post.categories contains "cheatsheets" or post.categories contains "writeups" %}
+            {% if post.tags contains "ad" or post.tags contains "active-directory" %}
+              {% assign ad_posts_count = ad_posts_count | plus: 1 %}
+            {% endif %}
+          {% endunless %}
+        {% endfor %}
+        {% if ad_posts_count == 0 %}
+          <div class="empty-section">No Active Directory posts yet</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>📝 Pwn & Binary Exploitation Posts</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.posts %}
+            {% unless post.categories contains "cheatsheets" or post.categories contains "writeups" %}
+              {% if post.tags contains "pwn" or post.tags contains "binary" or post.tags contains "exploitation" %}
+                {% include archive-card.html post=post %}
+              {% endif %}
+            {% endunless %}
+          {% endfor %}
+        </div>
+        {% assign pwn_posts_count = 0 %}
+        {% for post in site.posts %}
+          {% unless post.categories contains "cheatsheets" or post.categories contains "writeups" %}
+            {% if post.tags contains "pwn" or post.tags contains "binary" or post.tags contains "exploitation" %}
+              {% assign pwn_posts_count = pwn_posts_count | plus: 1 %}
+            {% endif %}
+          {% endunless %}
+        {% endfor %}
+        {% if pwn_posts_count == 0 %}
+          <div class="empty-section">No Pwn posts yet</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>📝 Web Posts</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.posts %}
+            {% unless post.categories contains "cheatsheets" or post.categories contains "writeups" %}
+              {% if post.tags contains "web" or post.tags contains "webapp" or post.tags contains "pentest" %}
+                {% include archive-card.html post=post %}
+              {% endif %}
+            {% endunless %}
+          {% endfor %}
+        </div>
+        {% assign web_posts_count = 0 %}
+        {% for post in site.posts %}
+          {% unless post.categories contains "cheatsheets" or post.categories contains "writeups" %}
+            {% if post.tags contains "web" or post.tags contains "webapp" or post.tags contains "pentest" %}
+              {% assign web_posts_count = web_posts_count | plus: 1 %}
+            {% endif %}
+          {% endunless %}
+        {% endfor %}
+        {% if web_posts_count == 0 %}
+          <div class="empty-section">No Web posts yet</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>📝 Reverse Engineering Posts</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.posts %}
+            {% unless post.categories contains "cheatsheets" or post.categories contains "writeups" %}
+              {% if post.tags contains "reverse" or post.tags contains "reversing" or post.tags contains "malware" %}
+                {% include archive-card.html post=post %}
+              {% endif %}
+            {% endunless %}
+          {% endfor %}
+        </div>
+        {% assign reverse_posts_count = 0 %}
+        {% for post in site.posts %}
+          {% unless post.categories contains "cheatsheets" or post.categories contains "writeups" %}
+            {% if post.tags contains "reverse" or post.tags contains "reversing" or post.tags contains "malware" %}
+              {% assign reverse_posts_count = reverse_posts_count | plus: 1 %}
+            {% endif %}
+          {% endunless %}
+        {% endfor %}
+        {% if reverse_posts_count == 0 %}
+          <div class="empty-section">No Reverse Engineering posts yet</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>📝 Web3 & Blockchain Posts</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.posts %}
+            {% unless post.categories contains "cheatsheets" or post.categories contains "writeups" %}
+              {% if post.tags contains "web3" or post.tags contains "blockchain" or post.tags contains "smart-contract" %}
+                {% include archive-card.html post=post %}
+              {% endif %}
+            {% endunless %}
+          {% endfor %}
+        </div>
+        {% assign web3_posts_count = 0 %}
+        {% for post in site.posts %}
+          {% unless post.categories contains "cheatsheets" or post.categories contains "writeups" %}
+            {% if post.tags contains "web3" or post.tags contains "blockchain" or post.tags contains "smart-contract" %}
+              {% assign web3_posts_count = web3_posts_count | plus: 1 %}
+            {% endif %}
+          {% endunless %}
+        {% endfor %}
+        {% if web3_posts_count == 0 %}
+          <div class="empty-section">No Web3 posts yet</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>📝 Not Defined Posts</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.posts %}
+            {% unless post.categories contains "cheatsheets" or post.categories contains "writeups" or post.tags contains "ad" or post.tags contains "pwn" or post.tags contains "web" or post.tags contains "reverse" or post.tags contains "web3" %}
+              {% include archive-card.html post=post %}
+            {% endunless %}
+          {% endfor %}
+        </div>
+        {% assign other_posts_count = 0 %}
+        {% for post in site.posts %}
+          {% unless post.categories contains "cheatsheets" or post.categories contains "writeups" or post.tags contains "ad" or post.tags contains "pwn" or post.tags contains "web" or post.tags contains "reverse" or post.tags contains "web3" %}
+            {% assign other_posts_count = other_posts_count | plus: 1 %}
+          {% endunless %}
+        {% endfor %}
+        {% if other_posts_count == 0 %}
+          <div class="empty-section">No uncategorized posts</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="archives-category-section">
+  <div class="archives-category-header">
+    <h2>🔍 Writeups</h2>
+    <span class="archives-category-toggle">▶</span>
+  </div>
+  <div class="archives-category-content">
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>🔍 Active Directory Writeups</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.categories.writeups %}
+            {% if post.tags contains "ad" or post.tags contains "active-directory" %}
+              {% include archive-card.html post=post %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% assign ad_writeups_count = 0 %}
+        {% for post in site.categories.writeups %}
+          {% if post.tags contains "ad" or post.tags contains "active-directory" %}
+            {% assign ad_writeups_count = ad_writeups_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% if ad_writeups_count == 0 %}
+          <div class="empty-section">No Active Directory writeups yet</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>🔍 Pwn & Binary Exploitation Writeups</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.categories.writeups %}
+            {% if post.tags contains "pwn" or post.tags contains "binary" or post.tags contains "exploitation" %}
+              {% include archive-card.html post=post %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% assign pwn_writeups_count = 0 %}
+        {% for post in site.categories.writeups %}
+          {% if post.tags contains "pwn" or post.tags contains "binary" or post.tags contains "exploitation" %}
+            {% assign pwn_writeups_count = pwn_writeups_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% if pwn_writeups_count == 0 %}
+          <div class="empty-section">No Pwn writeups yet</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>🔍 Web Writeups</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.categories.writeups %}
+            {% if post.tags contains "web" or post.tags contains "webapp" or post.tags contains "pentest" %}
+              {% include archive-card.html post=post %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% assign web_writeups_count = 0 %}
+        {% for post in site.categories.writeups %}
+          {% if post.tags contains "web" or post.tags contains "webapp" or post.tags contains "pentest" %}
+            {% assign web_writeups_count = web_writeups_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% if web_writeups_count == 0 %}
+          <div class="empty-section">No Web writeups yet</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>🔍 Reverse Engineering Writeups</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.categories.writeups %}
+            {% if post.tags contains "reverse" or post.tags contains "reversing" or post.tags contains "malware" %}
+              {% include archive-card.html post=post %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% assign reverse_writeups_count = 0 %}
+        {% for post in site.categories.writeups %}
+          {% if post.tags contains "reverse" or post.tags contains "reversing" or post.tags contains "malware" %}
+            {% assign reverse_writeups_count = reverse_writeups_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% if reverse_writeups_count == 0 %}
+          <div class="empty-section">No Reverse Engineering writeups yet</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>🔍 Web3 & Blockchain Writeups</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section-content">
+        <div class="archives-grid">
+          {% for post in site.categories.writeups %}
+            {% if post.tags contains "web3" or post.tags contains "blockchain" or post.tags contains "smart-contract" %}
+              {% include archive-card.html post=post %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% assign web3_writeups_count = 0 %}
+        {% for post in site.categories.writeups %}
+          {% if post.tags contains "web3" or post.tags contains "blockchain" or post.tags contains "smart-contract" %}
+            {% assign web3_writeups_count = web3_writeups_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% if web3_writeups_count == 0 %}
+          <div class="empty-section">No Web3 writeups yet</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="archives-section">
+      <div class="archives-section-header">
+        <h3>🔍 Not Defined Writeups</h3>
+        <span class="archives-toggle">▶</span>
+      </div>
+      <div class="archives-section
