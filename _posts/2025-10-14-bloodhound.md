@@ -5,7 +5,7 @@ date: 2026-01-14
 categories: writeup
 tags: [posts,ethicxz,SSRF,CSRF,XSS,SQLi,Command Injection]
 author: Ethicxz
-image: start/HackMeBackIfUCanSQLite.jpg
+image: assets/img/start/HackMeBackIfUCanSQLite.png
 description: Writeup Web Challenge
 ---
 
@@ -13,7 +13,7 @@ description: Writeup Web Challenge
 
 # HackMeBackIfUCanSQLite
 
-## Features 
+## Features
 
 - `@app.route('/')` : This only returns `index.html`
 - `@app.route('/report',methods=['GET'])` : Perform a `GET` request on the given `URL` 
