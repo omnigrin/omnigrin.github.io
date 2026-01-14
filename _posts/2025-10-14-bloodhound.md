@@ -407,6 +407,24 @@ curl 172.17.0.2:5000/admin -b 'session=eyJ1c2VybmFtZSI6ImFkbWluIn0.aWeEng.bgEDg8
 
 <p id="result-status">ping: bad address &#39;MCTF{FAKE_FLAG}&#39;
 ```
+### Breaking down the Bash Magic
+
+You might wonder: *Why does `$(<????????)` actually work?*
+
+It works by combining two specific Bash features that don't require alphanumeric characters:
+
+1.  **Wildcards (Globbing):**
+    In Bash, the `?` character matches **any single character**.
+    Since the file `flag.txt` is exactly **8 characters** long, the pattern `????????` successfully matches (expands to) `flag.txt`.
+
+2.  **Input Redirection Shortcut:**
+    We usually use `$(cat file)` to read a file. However, Bash has a built-in optimized syntax: `$(<file)`.
+    This syntax reads the file content directly without spawning a `cat` process (and importantly, without using the word "cat").
+
+So the execution flow is:
+1.  **Expansion:** `????????` becomes `flag.txt`.
+2.  **Substitution:** `$(<flag.txt)` reads the content.
+3.  **Execution:** The content (the flag) is passed as an argument to `ping`.
 Now we can just do exactly the same on remote !
 
 Thanks a lot to the creator of this challenge, `Owne` !
