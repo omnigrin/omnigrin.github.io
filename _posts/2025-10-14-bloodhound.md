@@ -1,11 +1,11 @@
 ---
 layout: post
-title: HackMeBackIfUCanSQLite
+title: HackMeBackIfUCanSQLite - Web Challenge
 date: 2026-01-14
 categories: writeup
-tags: [posts,ethicxz,SSRF,CSRF,XSS,SQLi,Command Injection]
+tags: [posts,ethicxz,SSRF,CSRF,XSS,SQLi,Command Injection,Web]
 author: Ethicxz
-image: assets/img/start/HackMeBackIfUCanSQLite.png
+image: start/HackMeBackIfUCanSQLite.png
 description: Writeup Web Challenge
 ---
 
