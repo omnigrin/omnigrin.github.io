@@ -3,7 +3,7 @@ layout: post
 title: HackMeBackIfUCanSQLite - Web Challenge
 date: 2026-01-14
 categories: writeups
-tags: [posts, ethicxz, SSRF, CSRF, XSS, SQLi, Command Injection, web]
+tags: [SSRF, CSRF, XSS, SQLi, Command Injection, web, posts, ethicxz, ]
 author: Ethicxz
 image: start/HackMeBackIfUCanSQLite.png
 description: Writeup Web Challenge
@@ -425,6 +425,7 @@ So the execution flow is:
 1.  **Expansion:** `????????` becomes `flag.txt`.
 2.  **Substitution:** `$(<flag.txt)` reads the content.
 3.  **Execution:** The content (the flag) is passed as an argument to `ping`.
+
 Now we can just do exactly the same on remote !
 
 Thanks a lot to the creator of this challenge, `Owne` !
